@@ -3,8 +3,6 @@
 > 本仓库以**硬件资料**为主：记录被借鉴天气时钟的硬件细节，并给出 KairosTide 的正式项目演示介绍。
 > 由真实时间、地点、天气与日程共同驱动的原创交互系统：让时间可以被感知，但不被盯着。
 
-![KairosTide 首页画面：田园四时场景](https://github.com/user-attachments/assets/17ff3959-ea61-49ad-bf45-af4a02697c59)
-
 ## 摘要
 
 KairosTide 是一个弱化钟表的自然场景 Demo。首页不显示钟点、时间轴、下一事件或剩余分钟数，而是用太阳、天空、月亮、云、水面与物候变化表达时间流动；用户长按画面才查看到真实时间，用自然语言向助手询问日程，事件进行中则由一只当季当时的生灵出现在池塘上作为提醒。
@@ -104,7 +102,24 @@ flowchart LR
 - KairosTide 的产品定义、交互、助手、场景渲染与工程实现归本项目作者原创。我们不宣称原作者的硬件、结构与固件为原创，也不把 KairosTide 描述为该项目固件移植。
 - 完整清单与归属表见 [docs/KAIROSTIDE.md](docs/KAIROSTIDE.md)，资料出处见 [docs/SOURCES.md](docs/SOURCES.md)。
 
-## 七、完成度与验证
+## 七、近期更新（最新版潮汐时钟，完整项目仓库暂无）
+
+以下更新来自本地最新版，对比 https://github.com/yishengsss/KairosTide-NotimerDay.git 后确认对应实现文件在完整项目仓库中尚不存在，属于后续的二次开发与创作：
+
+| 更新 | 效果 | 关键实现 |
+| --- | --- | --- |
+| 助手流式回答 | 逐字输出，回答过程中显示工具过程；Markdown 安全排版 | `application/assistant/streaming.py`、`assistant/markdown.ts` |
+| 时间解析兜底 | 用 JioNLP 解析原句，与模型时间偏差过大时在草稿里提醒核对 | `application/assistant/time_check.py` |
+| 语音朗读与唤醒 | 服务端女声（Edge TTS 晓晓）优先、失败回退浏览器合成；唤醒词自动续听 | `adapters/speech/edgespeak.py`、`assistant/voice.ts`、`assistant/aloud.ts` |
+| 真实星表与流星雨 | 26 颗亮星、8 场流星雨历表进入夜空，按真实方位与极大期显示 | `scene/pastoral/stars.ts`、`showers.ts`、`render/meteors.ts` |
+| 农历与节气 | 长按查时副行显示农历、时辰与节气 | `clock/lunar.ts` |
+| 锦鲤重绘与树 | 体轴行波游动、叉尾与鳍、斑纹；树按悬臂梁一阶模态摆动并有光斑 | `scene/pastoral/render/koi.ts`、`shader` 与 `creatures.ts` |
+| 池塘互动与萤火虫 | 点击投食、锦鲤群游；萤火虫按脉冲耦合模型同步闪烁 | `pond-life.ts`、`pulse.ts` |
+| 通知与状态提示 | 到点系统通知；48 小时摘要预注入；确认后的草稿状态如实反馈 | `schedule/notify.ts`、`application/assistant/decisions.py` |
+
+逐项说明与文件清单见 [docs/RECENT_UPDATES.md](docs/RECENT_UPDATES.md)。
+
+## 八、完成度与验证
 
 | 部分 | 状态 |
 | --- | :---: |
@@ -118,7 +133,7 @@ flowchart LR
 
 后端 pytest + mypy strict + ruff、前端 vitest + vue-tsc、架构与契约门禁均已通过，并进行过真实模型与浏览器实测。界面效果以浏览器实测为准。
 
-## 八、如何运行 Demo
+## 九、如何运行 Demo
 
 源码在 KairosTide 完整项目仓库，本仓库只放硬件资料与介绍：
 
@@ -133,7 +148,7 @@ bash scripts/start.sh          # 加 --demo 写入演示事件
 
 手动方式：在 `services/api` 执行 `uv sync` 与 `uv run kairos-api`（监听 127.0.0.1:8000），在 `apps/web` 执行 `npm install` 与 `npm run dev`。助手功能需要配置 `MIMO_API_KEY`；未配置时其余功能照常运行。完整配置项见该仓库的 README。
 
-## 九、附录：被借鉴项目硬件资料
+## 十、附录：被借鉴项目硬件资料
 
 本仓库保留被借鉴项目的公开硬件资料，便于查阅与对照；这些参数仅作资料记录，KairosTide 未沿用该硬件设计。
 

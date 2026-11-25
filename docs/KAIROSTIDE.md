@@ -81,6 +81,7 @@
 ## 了解更多
 
 - **KairosTide 完整项目（软件源码）**：https://github.com/yishengsss/KairosTide-NotimerDay.git
+- 本地最新版的近期更新（上述仓库暂无）：[RECENT_UPDATES.md](RECENT_UPDATES.md)
 - 产品与功能全景：上述仓库的 README
 - 架构、依赖方向与三种时钟：上述仓库的 `ARCHITECTURE.md`
 - 被借鉴项目硬件资料与 Demo 介绍：https://github.com/jhlking/esp32c3-travel-weather-clock
