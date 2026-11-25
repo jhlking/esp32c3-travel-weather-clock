@@ -1,6 +1,7 @@
-# KairosTide Demo · 无计时器的自然场景时钟
+# KairosTide · 硬件资料与 Demo 介绍
 
-> 一套由真实时间、地点、天气与日程共同驱动的原创交互系统：让时间可以被感知，但不被盯着。
+> 本仓库以**硬件资料**为主：记录被借鉴天气时钟的硬件细节，并给出 KairosTide 的正式项目演示介绍。
+> 由真实时间、地点、天气与日程共同驱动的原创交互系统：让时间可以被感知，但不被盯着。
 
 ![KairosTide 首页画面：田园四时场景](https://github.com/user-attachments/assets/17ff3959-ea61-49ad-bf45-af4a02697c59)
 
@@ -9,6 +10,13 @@
 KairosTide 是一个弱化钟表的自然场景 Demo。首页不显示钟点、时间轴、下一事件或剩余分钟数，而是用太阳、天空、月亮、云、水面与物候变化表达时间流动；用户长按画面才查看到真实时间，用自然语言向助手询问日程，事件进行中则由一只当季当时的生灵出现在池塘上作为提醒。
 
 本项目只借鉴了开源项目「旅行天气时钟-Esp32C3 2.0」的少量思路——桌面天气时钟的场景方向、天气数据入画、开源可复刻的精神；**没有沿用其硬件、结构或固件**。产品定义、交互方式、对话助手、场景渲染与工程架构均为本项目独立二次开发与原创创作。借鉴与原创边界见 [docs/KAIROSTIDE.md](docs/KAIROSTIDE.md)。
+
+## 项目地址
+
+| 仓库 | 地址 | 内容 |
+| --- | --- | --- |
+| **KairosTide 完整项目（软件）** | https://github.com/yishengsss/KairosTide-NotimerDay.git | Vue 3 前端、FastAPI 后端、领域模型、契约与门禁等全部源码 |
+| **本仓库（硬件资料 + Demo 介绍）** | https://github.com/jhlking/esp32c3-travel-weather-clock | 被借鉴硬件的 PCB / 屏幕 / 结构资料、原创边界与演示介绍 |
 
 ---
 
@@ -112,13 +120,18 @@ flowchart LR
 
 ## 八、如何运行 Demo
 
+源码在 KairosTide 完整项目仓库，本仓库只放硬件资料与介绍：
+
 ```bash
+git clone https://github.com/yishengsss/KairosTide-NotimerDay.git
+cd KairosTide-NotimerDay
+
 # macOS 一键方式
 bash scripts/setup.sh
 bash scripts/start.sh          # 加 --demo 写入演示事件
 ```
 
-手动方式：在 `services/api` 执行 `uv sync` 与 `uv run kairos-api`（监听 127.0.0.1:8000），在 `apps/web` 执行 `npm install` 与 `npm run dev`。助手功能需要配置 `MIMO_API_KEY`；未配置时其余功能照常运行。完整配置项见 KairosTide 项目 README。
+手动方式：在 `services/api` 执行 `uv sync` 与 `uv run kairos-api`（监听 127.0.0.1:8000），在 `apps/web` 执行 `npm install` 与 `npm run dev`。助手功能需要配置 `MIMO_API_KEY`；未配置时其余功能照常运行。完整配置项见该仓库的 README。
 
 ## 九、附录：被借鉴项目硬件资料
 

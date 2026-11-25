@@ -2,6 +2,8 @@
 
 本目录预留给原理图、PCB、3D 结构与固件等工程文件。目前为空：原工程页面的设计图、BOM、3D 模型与附件栏均无公开下载数据，本仓库不转载未公开的源文件。
 
+KairosTide 的完整软件项目在 https://github.com/yishengsss/KairosTide-NotimerDay.git ；本仓库以硬件资料为主，两者不要混淆。
+
 ## 如何取得原始工程
 
 1. 打开原工程：[旅行天气时钟-Esp32C3 2.0](https://oshwhub.com/eda_pnhleoqpu/esp32c3_-zhang-tiao-ping-you-hu-ji_copy_copy_copy_copy_copy)

@@ -80,6 +80,8 @@
 
 ## 了解更多
 
-- 产品与功能全景：KairosTide 项目 README
-- 架构、依赖方向与三种时钟：KairosTide `ARCHITECTURE.md`
+- **KairosTide 完整项目（软件源码）**：https://github.com/yishengsss/KairosTide-NotimerDay.git
+- 产品与功能全景：上述仓库的 README
+- 架构、依赖方向与三种时钟：上述仓库的 `ARCHITECTURE.md`
+- 被借鉴项目硬件资料与 Demo 介绍：https://github.com/jhlking/esp32c3-travel-weather-clock
 - 被借鉴项目资料逐条出处：[SOURCES.md](SOURCES.md)
